@@ -1,0 +1,68 @@
+Name: A'laa Abdelsattar el-sayed
+
+Job Title: AI/ML Engineer
+
+
+Project 1:
+Name: ai-translator
+
+Short Description:
+A web application that translates text between 5 languages (Arabic, English, French, Spanish, and German) using Meta's NLLB pre-trained AI model. The app includes a Text-to-Speech (TTS) feature to listen to the correct pronunciation of the translated text, a built-in copy button, and a modern, clean UI built with Streamlit.
+
+Streamlit:
+https://ai-translator-alaa.streamlit.app/
+
+GitHub:
+https://github.com/AlaaAbdelsatar2004/AI-Translator-App
+
+
+Project 2:
+Name: pneumonia-xray-detector
+
+Short Description:
+Developed an EfficientNet-based Deep Learning model to classify Chest X-ray images into Normal, Bacterial Pneumonia, and Viral Pneumonia.
+
+Streamlit:
+https://pneumonia-xray-detector-m8vvmzslgkdlnrq6s6kwzr.streamlit.app/
+
+GitHub:
+https://github.com/AlaaAbdelsatar2004/pneumonia-xray-detector
+
+
+Project 3:
+Name: stroke-risk-predicto
+
+Short Description:
+Developed a 10-year stroke risk prediction model using XGBoost and Random Forest based on demographic and health-related features.
+
+Streamlit:
+https://stroke-risk-predicto-app.streamlit.app/
+
+GitHub:
+https://github.com/AlaaAbdelsatar2004/-stroke-risk-predicto
+
+
+Project 4:
+Name: classification-app
+
+Short Description:
+Built and deployed an interactive Streamlit web app supporting CSV/Excel uploads (10k+ rows) with automated preprocessing.
+
+Streamlit:
+https://classification-app-app.streamlit.app/
+
+GitHub:
+https://github.com/AlaaAbdelsatar2004/classification-app-streamlit
+
+
+Project 5:
+Name: Traffic Sign Detection & MLOps Pipeline
+
+Short Description:
+Developed a real-time Traffic Sign Detection system using YOLOv8 on the GTSDB dataset (43 classes), outputting precise bounding boxes and confidence scores for Intelligent Transportation Systems.
+
+GitHub:
+https://github.com/AlaaAbdelsatar2004/Machine-Learning-Internship-Tasks/tree/main/Task_8_Traffic_Sign_Recognition
+
+Image:
+traffic-sign-detection.png
