@@ -65,4 +65,4 @@ GitHub:
 https://github.com/AlaaAbdelsatar2004/Machine-Learning-Internship-Tasks/tree/main/Task_8_Traffic_Sign_Recognition
 
 Image:
-traffic-sign-detection.png
+traffic-sign-detection.png.jpg
