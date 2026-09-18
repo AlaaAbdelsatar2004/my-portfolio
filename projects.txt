@@ -23,7 +23,7 @@ Short Description:
 Developed an EfficientNet-based Deep Learning model to classify Chest X-ray images into Normal, Bacterial Pneumonia, and Viral Pneumonia.
 
 Streamlit:
-https://pneumonia-xray-detector-m8vvmzslgkdlnrq6s6kwzr.streamlit.app/
+https://xray-detectorpneumoai-app-myzpgpnz4prappjpiffbq5n.streamlit.app/
 
 GitHub:
 https://github.com/AlaaAbdelsatar2004/pneumonia-xray-detector
