@@ -14,17 +14,14 @@ const IPhoneContainer = ({ shouldUnlock, activeAppUrl, onAppOpen, onAppClose, ap
     const [isUnlocked, setIsUnlocked] = useState(false);
 
     useEffect(() => {
-        if (shouldUnlock && !isUnlocked) {
-            // Small delay before unlocking once the phone is in position
-            const timer = setTimeout(() => {
-                setIsUnlocked(true);
-            }, 500);
-            return () => clearTimeout(timer);
-        } else if (!shouldUnlock && isUnlocked) {
-            // Reset lock screen if user scrolls back up
+        // If there's an active app URL that is valid, unlock the phone to show it.
+        // Otherwise, keep it locked to show the "Projects Locked" overlay.
+        if (activeAppUrl && activeAppUrl !== "" && activeAppUrl !== "#") {
+            setIsUnlocked(true);
+        } else {
             setIsUnlocked(false);
         }
-    }, [shouldUnlock, isUnlocked]);
+    }, [shouldUnlock, activeAppUrl]);
 
     return (
         <div className="relative w-full h-full bg-black overflow-hidden font-sans rounded-[2.7rem]">
