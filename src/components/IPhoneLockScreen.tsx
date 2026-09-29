@@ -89,7 +89,7 @@ const IPhoneLockScreen = ({ isUnlocked }: IPhoneLockScreenProps) => {
               </div>
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-[10px] text-white/80">
                 <Sparkles size={12} className="text-amber-400" />
-                <span>Flutter 3.x</span>
+                <span>Flutter & Kotlin</span>
               </div>
             </motion.div>
           </div>

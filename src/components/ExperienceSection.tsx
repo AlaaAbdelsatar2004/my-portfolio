@@ -39,18 +39,18 @@ type Experience = {
 const experiences: Experience[] = [
   {
     step: "01",
-    role: "Junior Flutter Developer",
+    role: "Junior Flutter & Mobile Developer",
     company: "Self-Employed",
     period: "Oct 2024 – Present",
     type: "Freelance / Remote",
     status: "Active",
     icon: Briefcase,
     highlight: "Delivering production apps on Google Play & Enterprise Real-Time Tracking systems",
-    tags: ["Flutter", "Clean Architecture", "MVI / Cubit", "Supabase", "Firebase", "AI Agents"],
+    tags: ["Flutter", "Dart", "Kotlin", "Clean Architecture", "MVI / Cubit", "Supabase", "Firebase", "AI Agents"],
     points: [
       "Architected and delivered enterprise-grade solutions including real-time tracking systems and published apps on Google Play.",
       "Integrated AI agents into mobile workflows and built robust backend services with Firebase and Supabase.",
-      "Engineered scalable, cross-platform applications for iOS & Android using Clean Architecture, MVI, and BLoC/Cubit.",
+      "Engineered scalable applications using Clean Architecture, MVI, and BLoC/Cubit, expanding into Native Android with Kotlin.",
     ],
   },
   {

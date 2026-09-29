@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
-import { Github, Play, Globe, Apple, Smartphone, ChevronLeft, LayoutGrid, List, X, Info, ListChecks, Layers, MonitorSmartphone, Gift, Store, MapPin, Dumbbell, Flower2, GraduationCap, Music, Sparkles } from "lucide-react";
+import { Github, Play, Globe, Apple, Smartphone, ChevronLeft, LayoutGrid, X, Info, ListChecks, Layers, MonitorSmartphone, Gift, Store, MapPin, Dumbbell, Flower2, GraduationCap, Music, Sparkles, Truck } from "lucide-react";
 import PhoneFrame from "./PhoneFrame";
 import IPhoneContainer from "./IPhoneContainer";
 import WebFrame from "./WebFrame";
@@ -9,6 +9,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 type Project = {
     title: string;
     role: string;
+    badge?: string;
     about: string;
     features: string[];
     tags: string[];
@@ -24,7 +25,9 @@ const getProjectIcon = (title: string) => {
     const t = title.toLowerCase();
     if (t.includes("reward")) return Gift;
     if (t.includes("dahab") || t.includes("store") || t.includes("sales")) return Store;
-    if (t.includes("tracking") || t.includes("real-time")) return MapPin;
+    if (t.includes("admin") || t.includes("manager")) return Layers;
+    if (t.includes("elevate") || t.includes("driver")) return Truck;
+    if (t.includes("employee") || t.includes("attendance") || t.includes("tracking") || t.includes("real-time")) return MapPin;
     if (t.includes("fitness")) return Dumbbell;
     if (t.includes("flowery")) return Flower2;
     if (t.includes("exam")) return GraduationCap;
@@ -51,39 +54,61 @@ const projects: Project[] = [
         url: "https://zlunix.com"
     },
     {
-        title: "Dahab Store – Sales Management System",
-        role: "Flutter & Supabase Engineer",
-        about: "A production-grade Flutter Windows desktop application for retail operations, handling multi-currency sales, inventory, suppliers, and daily cash closing with PDF/Excel reporting. Engineered the backend and data layer using Supabase (PostgreSQL, Auth, Realtime, RLS) within a Clean Architecture/MVI (Cubit) structure, ensuring real-time sync and role-based data security.",
+        title: "Dahab Store — Sales Management System",
+        role: "Flutter & Supabase Architect",
+        badge: "Enterprise System • Web / Desktop Only",
+        about: "A production-grade sales and inventory management system for modern retail businesses. Engineered with Clean Architecture + MVI (Cubit) and powered by Supabase (PostgreSQL, Auth, Realtime, RLS), featuring real-time multi-currency tracking (EGP, USD, EUR, SAR), cash drawer closing, vault management, and one-click PDF & Excel report exports.",
         features: [
-            "Multi-currency sales, inventory, and supplier management.",
-            "Daily cash closing with automated PDF & Excel reporting.",
-            "Real-time data sync and RLS role-based security via Supabase."
+            "Multi-currency sales & vault operations (EGP, USD, EUR, SAR) with in-vault currency exchange.",
+            "Daily financial closing with live drawer balance calculation, PDF reports & historical Excel exports.",
+            "Complete modules for suppliers ledger, savings groups (Gam3eya), categorized expenses & digital wallet (Visa).",
+            "Role-based access control (Admin / Employee) enforced via Supabase Row-Level Security (RLS)."
         ],
-        tags: ["Flutter", "Windows Desktop", "Clean Architecture", "MVI", "Cubit", "Supabase", "PostgreSQL", "PDF/Excel Reports"],
+        tags: ["Flutter", "Windows Desktop & Web", "Clean Architecture", "MVI / Cubit", "Supabase", "PostgreSQL (RLS)", "PDF / Excel Reports", "Realtime Sync", "GetIt / Injectable"],
         github: "https://github.com/moazosama1/Dahab-Store-Sales-Systeam",
-        web: "",
+        web: "https://joo783.github.io/dahab_store_demo/",
         playStore: "",
         appStore: "",
         icon: "https://api.dicebear.com/9.x/shapes/svg?seed=dahabstore",
         url: ""
     },
     {
-        title: "Enterprise Real-Time Tracking System",
-        role: "Freelance Flutter Developer",
-        about: "A robust workforce management solution with dual applications for employees and managers to handle attendance, shifts, and real-time tracking even in low-connectivity environments.",
+        title: "Tracking App – Admin & Manager Suite",
+        role: "Flutter & Supabase Engineer",
+        badge: "Dual-App Suite • Admin Portal (Web & Mobile)",
+        about: "Part 1 of the Enterprise Tracking Suite. A centralized management dashboard (Web & Mobile) for administrators and managers to track staff attendance, manage shifts, handle leave requests, and oversee organizational hierarchy with real-time sync and Excel/PDF report exports.",
         features: [
-            "Dual-app ecosystem: employee mobile app and manager dashboard.",
-            "Background location tracking with Google Maps integration.",
-            "Offline-first check in/out with automatic sync when online.",
-            "Shift planning, leave requests, and hierarchy management."
+            "Cross-platform management suite for Mobile & Web with role-based access control.",
+            "Branch & department organization with real-time staff location sync.",
+            "Shift planning, automated attendance logs, and leave approval workflows.",
+            "Instant Excel/PDF report exports and push notifications via Firebase."
         ],
-        tags: ["Flutter", "Clean Architecture", "MVI", "BLoC/Cubit", "Supabase", "ObjectBox", "Google Maps API"],
-        github: "",
+        tags: ["Flutter", "Clean Architecture", "MVI / Cubit", "Supabase", "GoRouter", "Firebase", "Web & Mobile"],
+        github: "https://github.com/youssefmdev22/tracking_app_admin_public",
+        web: "https://joo783.github.io/attendence_app_manager_demo/#/login",
+        playStore: "",
+        appStore: "",
+        icon: "https://api.dicebear.com/9.x/shapes/svg?seed=trackadmin",
+        url: "https://joo783.github.io/attendence_app_manager_demo/#/login"
+    },
+    {
+        title: "Employee Tracking App",
+        role: "Flutter Engineer",
+        badge: "Dual-App Suite • Employee App (Mobile Only)",
+        about: "Part 2 of the Enterprise Tracking Suite. A field-ready mobile application for employees to securely check in/out with background GPS tracking, shift schedule access, and leave requests, engineered with offline-first caching via ObjectBox.",
+        features: [
+            "Real-time Check-In / Check-Out with background location service support.",
+            "Offline-first local caching using ObjectBox for seamless operation in low connectivity.",
+            "Shift schedule viewing, leave request submission, and profile preferences.",
+            "Multilingual support (English & Arabic) and secure Supabase database sync."
+        ],
+        tags: ["Flutter", "Clean Architecture", "MVI / Cubit", "ObjectBox", "Supabase", "Google Maps", "Background Service", "Mobile Only"],
+        github: "https://github.com/youssefmdev22/tracking_app_user_public",
         web: "",
         playStore: "",
         appStore: "",
-        icon: "https://api.dicebear.com/9.x/shapes/svg?seed=rtts",
-        url: ""
+        icon: "https://api.dicebear.com/9.x/shapes/svg?seed=trackuser",
+        url: "https://joo783.github.io/attendence_app_employee_demo/#/login"
     },
     {
         title: "Super Fitness App",
@@ -104,20 +129,41 @@ const projects: Project[] = [
     },
     {
         title: "Flowery E-Commerce App",
-        role: "Flutter Developer",
-        about: "A complete e-commerce mobile experience handling browsing, secure authentication, checkout, and real-time order tracking from a single app flow.",
+        role: "Flutter & Clean Architecture Engineer",
+        badge: "Dual-App Suite • Customer App (Mobile Only)",
+        about: "Part 1 of the E-Commerce Ecosystem. An elegant mobile application for flower shopping, engineered with Clean Architecture & MVI (Cubit/Provider) across Data, Domain, Presentation, and API layers with real-time product discovery, checkout flows, online payments, and Google Maps address management.",
         features: [
-            "Secure sign in and registration flows.",
-            "Order tracking with map-based location updates.",
-            "Stable cart and session state management."
+            "Product discovery with categories, occasions, best sellers, and dynamic search & filters.",
+            "Full cart & checkout flow with quantity adjustments, order history, and payment gateway.",
+            "Multi-address management integrated with Google Maps and Geolocator GPS detection.",
+            "Secure authentication, guest mode, profile management, and multi-language support."
         ],
-        tags: ["Flutter", "Clean Architecture", "Cubit/Provider", "REST APIs", "Google Maps"],
-        github: "",
+        tags: ["Flutter", "Clean Architecture", "MVI / Cubit", "REST APIs", "Google Maps", "Flutter Secure Storage", "Unit Testing", "Mobile Only"],
+        github: "https://github.com/Bablu521/Elevate-Ecommerce-App",
         web: "",
         playStore: "",
         appStore: "",
         icon: "https://api.dicebear.com/9.x/shapes/svg?seed=flowery",
-        url: ""
+        url: "https://joo783.github.io/ecommerce_user_app_demo/"
+    },
+    {
+        title: "Elevate Tracking App",
+        role: "Flutter & Geolocation Engineer",
+        badge: "Dual-App Suite • Driver & Delivery (Mobile Only)",
+        about: "Part 2 of the E-Commerce Ecosystem. A real-time delivery and route tracking mobile application built for drivers to manage order pickups, destination routes, and live location broadcasting using Google Maps, Geolocator, and Cloud Firestore with Clean Architecture & BLoC.",
+        features: [
+            "Real-time driver location tracking and route monitoring powered by Google Maps & Geolocator.",
+            "Complete order lifecycle management with pickup/delivery location coordinates and status updates.",
+            "Secure PIN authentication with Flutter Secure Storage and Cloud Firestore live sync.",
+            "Modular Clean Architecture with Injectable DI, GoRouter, Retrofit, and comprehensive unit tests."
+        ],
+        tags: ["Flutter", "Clean Architecture", "BLoC", "Google Maps", "Geolocator", "Cloud Firestore", "Retrofit", "Injectable", "Mobile Only"],
+        github: "https://github.com/Bablu521/Elevate-Tracking-App",
+        web: "",
+        playStore: "",
+        appStore: "",
+        icon: "https://api.dicebear.com/9.x/shapes/svg?seed=elevatetracking",
+        url: "https://joo783.github.io/ecommerce_driver_app_demo/"
     },
     {
         title: "Online Exam Platform",
@@ -130,7 +176,7 @@ const projects: Project[] = [
         ],
         tags: ["Flutter", "Clean Architecture", "MVVM", "Cubit", "Dio", "Hive"],
         github: "https://github.com/AhmedNasser1999/exam_app",
-        web: "https://moazosama1.github.io/online-exam-app/",
+        web: "",
         playStore: "",
         appStore: "",
         icon: "https://api.dicebear.com/9.x/shapes/svg?seed=exam",
@@ -139,19 +185,21 @@ const projects: Project[] = [
     {
         title: "Mood-On – AI Mood & Music Companion",
         role: "Flutter & AI Engineer",
-        about: "An AI-powered Flutter app that detects the user's mood and recommends music accordingly, with AI companion chat and mood history tracking. Built with Clean Architecture/MVI (Cubit), ObjectBox for offline-first storage, GoRouter, and Firebase AI (Gemini) integration.",
+        badge: "Mobile App • AI Companion",
+        about: "A sophisticated, enterprise-grade Flutter application designed to bridge emotions and music. Mood-On uses AI-driven mood analysis (Firebase Gemini) to curate personalized soundtracks, offers empathetic AI chat companion support, and tracks emotional trends with offline-first ObjectBox caching, strictly built with Clean Architecture & MVI (Cubit).",
         features: [
-            "AI-powered mood detection and personalized music recommendation.",
-            "Interactive AI companion chat for emotional support & mood tracking.",
-            "Offline-first history storage powered by ObjectBox and GoRouter navigation."
+            "AI-powered emotional state detection & personalized music recommendations.",
+            "Interactive AI companion chat for emotional processing and empathy.",
+            "Offline-first mood history & trends tracking powered by high-speed ObjectBox database.",
+            "Bilingual support (English & Arabic RTL) with sleek dark-themed glassmorphic UI."
         ],
-        tags: ["Flutter", "Clean Architecture", "MVI / Cubit", "Firebase AI (Gemini)", "ObjectBox", "GoRouter"],
+        tags: ["Flutter", "Clean Architecture", "MVI / Cubit", "Firebase AI (Gemini)", "ObjectBox", "Dio / Retrofit", "GetIt / Injectable", "GoRouter", "EN / AR (RTL)", "Mobile Only"],
         github: "https://github.com/youssefmdev22/mood_on_public",
         web: "",
         playStore: "",
         appStore: "",
         icon: "https://api.dicebear.com/9.x/shapes/svg?seed=moodon",
-        url: ""
+        url: "https://joo783.github.io/mood_on_demo/#/onboarding"
     }
 ];
 
@@ -188,26 +236,26 @@ const ProjectCard = ({ proj, isActive, compact = false, onCardClick, onOpenDetai
         <div
             onClick={onCardClick}
             className={`group relative bg-card/60 backdrop-blur-xl rounded-2xl border transition-all duration-300 cursor-pointer h-full flex flex-col justify-between overflow-hidden shadow-md ${compact ? "p-4" : "p-6"} ${isActive
-                    ? "border-primary ring-2 ring-primary/30 shadow-[0_12px_35px_rgba(var(--primary),0.25)] bg-card/80"
-                    : "border-border/60 hover:border-primary/50 hover:shadow-[0_12px_35px_rgba(var(--primary),0.18)] hover:-translate-y-1"
+                ? "border-primary ring-2 ring-primary/30 shadow-[0_12px_35px_rgba(var(--primary),0.25)] bg-card/80"
+                : "border-border/60 hover:border-primary/50 hover:shadow-[0_12px_35px_rgba(var(--primary),0.18)] hover:-translate-y-1"
                 }`}
         >
             {/* Background Ambient Glow */}
             <div className={`absolute -top-12 -right-12 ${compact ? "w-24 h-24" : "w-32 h-32"} bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/25 transition-all duration-500 pointer-events-none`} />
 
             <div className="flex flex-col h-full relative z-10">
-                {/* Top Header: Icon & Role Badge */}
-                <div className={`flex items-start justify-between gap-2.5 ${compact ? "mb-2.5" : "mb-4"}`}>
-                    <div className="flex items-center gap-2.5 min-w-0">
-                        <div className={`${compact ? "p-2 rounded-lg" : "p-2.5 rounded-xl"} bg-primary/10 border border-primary/20 text-primary shadow-xs shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300`}>
+                {/* Top Header: Icon, Titles & Active Indicator */}
+                <div className={`flex items-start justify-between gap-3 ${compact ? "mb-2" : "mb-3"}`}>
+                    <div className="flex items-start gap-2.5 min-w-0 flex-1">
+                        <div className={`${compact ? "p-2 rounded-lg" : "p-2.5 rounded-xl"} bg-primary/10 border border-primary/20 text-primary shadow-xs shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mt-0.5`}>
                             <IconComponent size={compact ? 18 : 22} />
                         </div>
-                        <div className="min-w-0">
-                            <h3 className={`font-bold font-heading text-foreground group-hover:text-primary transition-colors duration-300 leading-tight truncate ${compact ? "text-sm sm:text-base" : "text-lg md:text-xl leading-snug"}`}>
+                        <div className="min-w-0 flex-1">
+                            <h3 className={`font-bold font-heading text-foreground group-hover:text-primary transition-colors duration-300 leading-snug ${compact ? "text-sm sm:text-base" : "text-base sm:text-lg md:text-xl"}`}>
                                 {proj.title}
                             </h3>
                             {proj.role && (
-                                <span className={`font-mono text-muted-foreground truncate block ${compact ? "text-[10px]" : "text-[11px]"}`}>
+                                <span className={`font-mono text-muted-foreground block mt-0.5 ${compact ? "text-[10px]" : "text-[11px]"}`}>
                                     {proj.role}
                                 </span>
                             )}
@@ -223,6 +271,18 @@ const ProjectCard = ({ proj, isActive, compact = false, onCardClick, onOpenDetai
                     )}
                 </div>
 
+                {/* Optional Suite Badge */}
+                {proj.badge && (
+                    <div className={`${compact ? "mb-2" : "mb-3"}`}>
+                        <span className={`inline-flex items-center gap-1 font-mono font-medium rounded-md border ${proj.badge.includes("Web")
+                                ? "bg-primary/10 border-primary/30 text-primary"
+                                : "bg-amber-500/10 border-amber-500/30 text-amber-500 dark:text-amber-400"
+                            } ${compact ? "text-[9px] px-1.5 py-0.5" : "text-[10px] px-2.5 py-1"}`}>
+                            {proj.badge}
+                        </span>
+                    </div>
+                )}
+
                 {/* About Description */}
                 <p className={`text-muted-foreground leading-relaxed font-sans ${compact ? "text-[11px] mb-3 line-clamp-2" : "text-xs sm:text-sm mb-5 line-clamp-3"}`}>
                     {proj.about}
@@ -234,8 +294,8 @@ const ProjectCard = ({ proj, isActive, compact = false, onCardClick, onOpenDetai
                         <span
                             key={tag}
                             className={`font-mono font-medium border transition-colors ${compact ? "text-[10px] px-1.5 py-0.5 rounded-md" : "text-[10px] sm:text-xs px-2.5 py-1 rounded-lg"} ${idx === 0
-                                    ? "bg-primary/10 border-primary/20 text-primary"
-                                    : "bg-secondary/60 border-border/50 text-muted-foreground hover:text-foreground"
+                                ? "bg-primary/10 border-primary/20 text-primary"
+                                : "bg-secondary/60 border-border/50 text-muted-foreground hover:text-foreground"
                                 }`}
                         >
                             {tag}
@@ -329,49 +389,24 @@ const ProjectsSection = () => {
     const phoneRef = useRef<HTMLDivElement>(null);
     const isMobile = useIsMobile();
     const [isLocked, setIsLocked] = useState(false);
-    const [activeAppUrl, setActiveAppUrl] = useState<string | null>(null);
-    const [viewMode, setViewMode] = useState<'list' | 'grid' | 'mobile' | 'web'>('list');
+    const webEnabledProjects = projects.filter(
+        (project) => project.web && project.web !== "#" && project.web !== ""
+    );
+    const [activeMobileAppUrl, setActiveMobileAppUrl] = useState<string | null>(null);
+    const [activeWebAppUrl, setActiveWebAppUrl] = useState<string | null>(null);
+    const [viewMode, setViewMode] = useState<'grid' | 'web'>('grid');
     const [showAll, setShowAll] = useState(false);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-    // On mobile, only 'list' and 'web' are available; fall back to 'list' if a hidden mode is active
-    useEffect(() => {
-        if (isMobile && (viewMode === 'grid' || viewMode === 'mobile')) {
-            setViewMode('list');
-        }
-    }, [isMobile, viewMode]);
-
-    const webEnabledProjects = projects.filter(
-        (project) => project.title === "Easy Reward Platform" && project.web && project.web !== "#"
-    );
-
-    const projectsForCurrentView = viewMode === 'web' ? webEnabledProjects : projects;
-
-    const getProjectPreviewUrl = (project: Project) => {
-        if (viewMode === 'web') return project.web || "";
-        return project.url || project.web || "";
-    };
-
-    const sortedProjectsForCurrentView = [...projectsForCurrentView].sort((a, b) => {
-        const aHasPreview = Boolean(getProjectPreviewUrl(a));
-        const bHasPreview = Boolean(getProjectPreviewUrl(b));
+    const sortedGridProjects = [...projects].sort((a, b) => {
+        const aHasPreview = Boolean(a.url || a.web);
+        const bHasPreview = Boolean(b.url || b.web);
         return Number(bHasPreview) - Number(aHasPreview);
     });
 
     const displayedProjects = showAll
-        ? sortedProjectsForCurrentView
-        : sortedProjectsForCurrentView.slice(0, viewMode === 'list' ? 3 : 4);
-    const leftProjects = displayedProjects.filter((_, i) => i % 2 === 0);
-    const rightProjects = displayedProjects.filter((_, i) => i % 2 !== 0);
-
-    useEffect(() => {
-        if (viewMode !== 'web') return;
-
-        const activeIsValidWebProject = webEnabledProjects.some((project) => project.web === activeAppUrl);
-        if (!activeIsValidWebProject) {
-            setActiveAppUrl(webEnabledProjects[0]?.web || null);
-        }
-    }, [viewMode, activeAppUrl, webEnabledProjects]);
+        ? sortedGridProjects
+        : sortedGridProjects.slice(0, 4);
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -383,9 +418,13 @@ const ProjectsSection = () => {
             );
 
             if (targetApp) {
-                // Use a small timeout to let the page render first
                 setTimeout(() => {
-                    openAndScrollToApp(targetApp.url);
+                    if (targetApp.url) {
+                        openMobileApp(targetApp.url);
+                    } else if (targetApp.web) {
+                        setViewMode('web');
+                        openWebApp(targetApp.web);
+                    }
                 }, 500);
             }
         }
@@ -421,24 +460,46 @@ const ProjectsSection = () => {
         if (!isLocked && v >= 0.4) setIsLocked(true);
     });
 
-    const openAndScrollToApp = (url: string) => {
-        setActiveAppUrl(url);
-        setIsLocked(true);
-
+    const scrollToPreview = () => {
         setTimeout(() => {
-            // Responsive scrolling
             if (window.innerWidth < 1024 && phoneRef.current) {
-                // On mobile, scroll directly to the phone with a small top offset
                 const yOffset = -80;
                 const y = phoneRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
                 window.scrollTo({ top: y, behavior: 'smooth' });
             } else if (phoneRef.current) {
-                // On desktop, ensure phone is fully visible
                 phoneRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else if (sectionRef.current) {
                 sectionRef.current.scrollIntoView({ behavior: "smooth" });
             }
         }, 100);
+    };
+
+    const openMobileApp = (url: string) => {
+        setActiveMobileAppUrl(url);
+        setIsLocked(true);
+        scrollToPreview();
+    };
+
+    const openWebApp = (url: string) => {
+        setActiveWebAppUrl(url);
+        scrollToPreview();
+    };
+
+    const handleProjectClick = (proj: Project) => {
+        if (viewMode === 'web') {
+            if (proj.web) {
+                openWebApp(proj.web);
+            }
+        } else {
+            // In Grid view
+            if (proj.url) {
+                openMobileApp(proj.url);
+            } else if (proj.web) {
+                // If it's a web/desktop only project (like Dahab Store)
+                setViewMode('web');
+                openWebApp(proj.web);
+            }
+        }
     };
 
     return (
@@ -473,29 +534,18 @@ const ProjectsSection = () => {
                 >
                     <div className="flex items-center justify-center bg-card/60 backdrop-blur-md border border-border/50 p-1.5 rounded-2xl w-fit shadow-sm">
                         <button
-                            onClick={() => setViewMode('list')}
-                            className={`px-3.5 py-1.5 rounded-xl flex items-center gap-1.5 text-xs font-mono font-medium transition-all duration-300 ${viewMode === 'list' ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
-                            title="List View"
-                        >
-                            <List size={16} /> List
-                        </button>
-                        <button
                             onClick={() => setViewMode('grid')}
-                            className={`hidden md:flex px-3.5 py-1.5 rounded-xl items-center gap-1.5 text-xs font-mono font-medium transition-all duration-300 ${viewMode === 'grid' ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
+                            className={`px-3.5 py-1.5 rounded-xl flex items-center gap-1.5 text-xs font-mono font-medium transition-all duration-300 ${viewMode === 'grid' ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
                             title="Grid View"
                         >
                             <LayoutGrid size={16} /> Grid
                         </button>
-                        <button
-                            onClick={() => setViewMode('mobile')}
-                            className={`hidden md:flex px-3.5 py-1.5 rounded-xl items-center gap-1.5 text-xs font-mono font-medium transition-all duration-300 ${viewMode === 'mobile' ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
-                            title="Mobile Split View"
-                        >
-                            <Smartphone size={16} /> Split
-                        </button>
                         {webEnabledProjects.length > 0 && (
                             <button
-                                onClick={() => setViewMode('web')}
+                                onClick={() => {
+                                    setViewMode('web');
+                                    setActiveWebAppUrl(null);
+                                }}
                                 className={`px-3.5 py-1.5 rounded-xl flex items-center gap-1.5 text-xs font-mono font-medium transition-all duration-300 ${viewMode === 'web' ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}`}
                                 title="Web View"
                             >
@@ -505,107 +555,54 @@ const ProjectsSection = () => {
                     </div>
                 </motion.div>
 
-                {viewMode === 'mobile' ? (
-                    /* ===== MOBILE SPLIT VIEW: Phone center, cards left & right ===== */
-                    <div className="flex flex-col items-center">
-                        <div className="flex flex-col xl:flex-row items-center xl:items-start justify-center gap-12 xl:gap-10 w-full">
-                            {/* Left Column */}
-                            <div className="hidden xl:flex flex-col gap-4 w-full max-w-[420px]">
-                                {leftProjects.map((proj, i) => (
-                                    <motion.div
-                                        key={`left-${proj.title}`}
-                                        initial={{ opacity: 0, x: -30 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.4, delay: i * 0.1 }}
-                                    >
-                                        <ProjectCard
-                                            proj={proj}
-                                            isActive={activeAppUrl === getProjectPreviewUrl(proj)}
-                                            onCardClick={() => openAndScrollToApp(getProjectPreviewUrl(proj))}
-                                            onOpenDetails={() => setSelectedProject(proj)}
-                                        />
-                                    </motion.div>
-                                ))}
-                            </div>
+                {viewMode === 'web' ? (
+                    /* ===== WEB VIEW: Full-width WebFrame on top, compact cards row below ===== */
+                    <div className="flex flex-col gap-8">
+                        {/* WebFrame — Full Width */}
+                        <div ref={phoneRef} className="w-full" style={{ perspective: "1200px" }}>
+                            <motion.div
+                                style={isLocked ? { rotateX: 0, scale: 1, y: 0 } : { rotateX: phoneRotateX, scale: phoneScale, y: phoneY }}
+                                className="w-full"
+                            >
+                                <WebFrame
+                                    activeUrl={activeWebAppUrl}
+                                    onReload={() => setActiveWebAppUrl((url) => (url ? `${url}${url.includes('?') ? '&' : '?'}r=${Date.now()}` : url))}
+                                    onClose={() => setActiveWebAppUrl(null)}
+                                />
+                            </motion.div>
+                        </div>
 
-                            {/* Central Phone */}
-                            <div ref={phoneRef} className="relative z-20 flex-shrink-0" style={{ perspective: "1200px" }}>
-                                <motion.div
-                                    style={isLocked ? { rotateX: 0, scale: 1, y: 0 } : { rotateX: phoneRotateX, scale: phoneScale, y: phoneY }}
-                                    className="w-[90vw] max-w-[320px] md:max-w-[360px] lg:max-w-[380px] relative"
-                                >
-                                    <PhoneFrame interactive={isLocked} isLocked={isLocked} glowIntensity={isLocked ? 1 : 0.5}>
-                                        <IPhoneContainer shouldUnlock={isLocked} activeAppUrl={activeAppUrl} onAppOpen={setActiveAppUrl} onAppClose={() => setActiveAppUrl(null)} apps={projects} />
-                                    </PhoneFrame>
-                                    {isLocked && (
-                                        <motion.div initial={{ opacity: 0, y: 20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} className="absolute -bottom-14 left-0 right-0 mx-auto w-fit px-2.5 h-[52px] bg-black/70 backdrop-blur-2xl rounded-full border border-white/10 flex items-center justify-center shadow-[0_15px_40px_-5px_rgba(0,0,0,0.8)] z-50 pointer-events-auto">
-                                            <button onClick={() => { try { const iframe = document.querySelector('iframe'); if (iframe && iframe.contentWindow) { try { iframe.contentWindow.history.back(); } catch (err) { iframe.contentWindow.postMessage('goBack', '*'); } } } catch (e) { console.log("Cannot go back", e); } }} className="w-10 h-10 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all active:scale-90" title="Go Back"><ChevronLeft size={22} strokeWidth={2.5} /></button>
-                                            <div className="w-[1px] h-4 bg-white/10 mx-2" />
-                                            <button onClick={() => setActiveAppUrl(null)} className="w-10 h-10 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all active:scale-90 group" title="Home Screen"><div className="w-[18px] h-[18px] border-[2.5px] border-current rounded-[6px] group-hover:scale-95 transition-transform" /></button>
-                                        </motion.div>
-                                    )}
-                                </motion.div>
-                            </div>
-
-                            {/* Right Column */}
-                            <div className="hidden xl:flex flex-col gap-4 w-full max-w-[420px]">
-                                {rightProjects.map((proj, i) => (
+                        {/* Project Cards — Horizontal Row of the 3 Web Projects Only */}
+                        <div className="w-full">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {webEnabledProjects.map((proj, i) => (
                                     <motion.div
-                                        key={`right-${proj.title}`}
-                                        initial={{ opacity: 0, x: 30 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.4, delay: i * 0.1 }}
-                                    >
-                                        <ProjectCard
-                                            proj={proj}
-                                            isActive={activeAppUrl === getProjectPreviewUrl(proj)}
-                                            onCardClick={() => openAndScrollToApp(getProjectPreviewUrl(proj))}
-                                            onOpenDetails={() => setSelectedProject(proj)}
-                                        />
-                                    </motion.div>
-                                ))}
-                            </div>
-
-                            {/* Cards for smaller screens (below xl) in mobile mode — standard grid */}
-                            <div className="xl:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                                {displayedProjects.map((proj, i) => (
-                                    <motion.div
-                                        key={`mobile-sm-${proj.title}`}
+                                        key={`web-${proj.title}`}
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
-                                        transition={{ duration: 0.4, delay: i * 0.1 }}
+                                        transition={{ duration: 0.4, delay: i * 0.08 }}
                                     >
                                         <ProjectCard
                                             proj={proj}
-                                            isActive={activeAppUrl === getProjectPreviewUrl(proj)}
-                                            onCardClick={() => openAndScrollToApp(getProjectPreviewUrl(proj))}
+                                            isActive={activeWebAppUrl === proj.web}
+                                            compact
+                                            onCardClick={() => handleProjectClick(proj)}
                                             onOpenDetails={() => setSelectedProject(proj)}
                                         />
                                     </motion.div>
                                 ))}
                             </div>
                         </div>
-
-                        {/* Load More / Show Less — bottom center */}
-                        {sortedProjectsForCurrentView.length > 4 && (
-                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full flex justify-center mt-16">
-                                <button onClick={() => setShowAll(!showAll)} className="px-6 py-2.5 rounded-full bg-secondary/50 border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 text-sm font-medium backdrop-blur-sm">
-                                    {showAll ? 'Show Less' : 'Show More Projects'}
-                                </button>
-                            </motion.div>
-                        )}
                     </div>
                 ) : (
-                    /* ===== LIST / GRID VIEW ===== */
-                    <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-                        <div className={`w-full ${viewMode === 'web' ? 'lg:w-[40%]' : 'lg:w-1/2'} flex flex-col order-2 lg:order-1`}>
-                            <div className={`w-full ${viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 gap-4 items-start content-start' : 'space-y-4'}`}>
+                    /* ===== GRID VIEW ===== */
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+                        <div className={`w-full ${isMobile ? '' : 'lg:w-1/2'} flex flex-col ${isMobile ? '' : 'order-2 lg:order-1'}`}>
+                            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {displayedProjects.map((proj, i) => (
                                     <motion.div
-                                        key={`${viewMode}-${proj.title}`}
+                                        key={`grid-${proj.title}`}
                                         initial={{ opacity: 0, x: -30 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
@@ -613,16 +610,16 @@ const ProjectsSection = () => {
                                     >
                                         <ProjectCard
                                             proj={proj}
-                                            isActive={activeAppUrl === getProjectPreviewUrl(proj)}
-                                            compact={viewMode === 'grid'}
-                                            onCardClick={() => openAndScrollToApp(getProjectPreviewUrl(proj))}
+                                            isActive={proj.url ? activeMobileAppUrl === proj.url : activeWebAppUrl === proj.web}
+                                            compact
+                                            onCardClick={() => handleProjectClick(proj)}
                                             onOpenDetails={() => setSelectedProject(proj)}
                                         />
                                     </motion.div>
                                 ))}
                             </div>
 
-                            {sortedProjectsForCurrentView.length > (viewMode === 'list' ? 3 : 4) && (
+                            {sortedGridProjects.length > 4 && (
                                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-center mt-8">
                                     <button onClick={() => setShowAll(!showAll)} className="px-6 py-2.5 rounded-full bg-secondary/50 border border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 text-sm font-medium backdrop-blur-sm">
                                         {showAll ? 'Show Less' : 'Show More Projects'}
@@ -631,35 +628,31 @@ const ProjectsSection = () => {
                             )}
                         </div>
 
-                        <div ref={phoneRef} className={`w-full ${viewMode === 'web' ? 'lg:w-[60%]' : 'lg:w-1/2'} lg:sticky lg:top-32 lg:self-start flex justify-center h-fit order-1 lg:order-2`} style={{ perspective: "1200px" }}>
-                            {viewMode === 'web' ? (
-                                <motion.div
-                                    style={isLocked ? { rotateX: 0, scale: 1, y: 0 } : { rotateX: phoneRotateX, scale: phoneScale, y: phoneY }}
-                                    className="w-full max-w-[980px]"
-                                >
-                                    <WebFrame
-                                        activeUrl={activeAppUrl}
-                                        onReload={() => setActiveAppUrl((url) => (url ? `${url}${url.includes('?') ? '&' : '?'}r=${Date.now()}` : url))}
+                        {!isMobile && (
+                            <div ref={phoneRef} className="w-full lg:w-1/2 lg:sticky lg:top-28 lg:self-start flex justify-center h-fit order-1 lg:order-2" style={{ perspective: "1200px" }}>
+                            <motion.div
+                                style={isLocked ? { rotateX: 0, scale: 1, y: 0 } : { rotateX: phoneRotateX, scale: phoneScale, y: phoneY }}
+                                className="w-[90vw] max-w-[320px] md:max-w-[360px] lg:max-w-[380px] relative"
+                            >
+                                <PhoneFrame interactive={isLocked} isLocked={isLocked} glowIntensity={isLocked ? 1 : 0.5}>
+                                    <IPhoneContainer
+                                        shouldUnlock={isLocked}
+                                        activeAppUrl={activeMobileAppUrl}
+                                        onAppOpen={setActiveMobileAppUrl}
+                                        onAppClose={() => setActiveMobileAppUrl(null)}
+                                        apps={projects.filter(p => p.url && p.url !== "")}
                                     />
-                                </motion.div>
-                            ) : (
-                                <motion.div
-                                    style={isLocked ? { rotateX: 0, scale: 1, y: 0 } : { rotateX: phoneRotateX, scale: phoneScale, y: phoneY }}
-                                    className="w-[90vw] max-w-[320px] md:max-w-[360px] lg:max-w-[380px] relative"
-                                >
-                                    <PhoneFrame interactive={isLocked} isLocked={isLocked} glowIntensity={isLocked ? 1 : 0.5}>
-                                        <IPhoneContainer shouldUnlock={isLocked} activeAppUrl={activeAppUrl} onAppOpen={setActiveAppUrl} onAppClose={() => setActiveAppUrl(null)} apps={projects} />
-                                    </PhoneFrame>
-                                    {isLocked && (
-                                        <motion.div initial={{ opacity: 0, y: 20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} className="absolute -bottom-14 left-0 right-0 mx-auto w-fit px-2.5 h-[52px] bg-black/70 backdrop-blur-2xl rounded-full border border-white/10 flex items-center justify-center shadow-[0_15px_40px_-5px_rgba(0,0,0,0.8)] z-50 pointer-events-auto">
-                                            <button onClick={() => { try { const iframe = document.querySelector('iframe'); if (iframe && iframe.contentWindow) { try { iframe.contentWindow.history.back(); } catch (err) { iframe.contentWindow.postMessage('goBack', '*'); } } } catch (e) { console.log("Cannot go back", e); } }} className="w-10 h-10 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all active:scale-90" title="Go Back"><ChevronLeft size={22} strokeWidth={2.5} /></button>
-                                            <div className="w-[1px] h-4 bg-white/10 mx-2" />
-                                            <button onClick={() => setActiveAppUrl(null)} className="w-10 h-10 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all active:scale-90 group" title="Home Screen"><div className="w-[18px] h-[18px] border-[2.5px] border-current rounded-[6px] group-hover:scale-95 transition-transform" /></button>
-                                        </motion.div>
-                                    )}
-                                </motion.div>
-                            )}
+                                </PhoneFrame>
+                                {isLocked && (
+                                    <motion.div initial={{ opacity: 0, y: 20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} className="absolute -bottom-14 left-0 right-0 mx-auto w-fit px-2.5 h-[52px] bg-black/70 backdrop-blur-2xl rounded-full border border-white/10 flex items-center justify-center shadow-[0_15px_40px_-5px_rgba(0,0,0,0.8)] z-50 pointer-events-auto">
+                                        <button onClick={() => { try { const iframe = document.querySelector('iframe'); if (iframe && iframe.contentWindow) { try { iframe.contentWindow.history.back(); } catch (err) { iframe.contentWindow.postMessage('goBack', '*'); } } } catch (e) { console.log("Cannot go back", e); } }} className="w-10 h-10 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all active:scale-90" title="Go Back"><ChevronLeft size={22} strokeWidth={2.5} /></button>
+                                        <div className="w-[1px] h-4 bg-white/10 mx-2" />
+                                        <button onClick={() => setActiveMobileAppUrl(null)} className="w-10 h-10 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-all active:scale-90 group" title="Home Screen"><div className="w-[18px] h-[18px] border-[2.5px] border-current rounded-[6px] group-hover:scale-95 transition-transform" /></button>
+                                    </motion.div>
+                                )}
+                            </motion.div>
                         </div>
+                        )}
                     </div>
                 )}
 
@@ -680,6 +673,14 @@ const ProjectsSection = () => {
                                     <div className="pr-12">
                                         <p className="text-[11px] tracking-[0.14em] uppercase text-primary/90 mb-2">Project Details</p>
                                         <h3 className="text-2xl md:text-3xl font-bold font-heading text-foreground leading-tight">{selectedProject.title}</h3>
+                                        {selectedProject.badge && (
+                                            <span className={`inline-flex items-center gap-1 font-mono text-xs font-semibold px-2.5 py-0.5 mt-2 rounded-md border ${selectedProject.badge.includes("Web")
+                                                    ? "bg-primary/15 border-primary/30 text-primary"
+                                                    : "bg-amber-500/15 border-amber-500/30 text-amber-500 dark:text-amber-400"
+                                                }`}>
+                                                {selectedProject.badge}
+                                            </span>
+                                        )}
                                         <p className="text-sm text-foreground/80 mt-2">{selectedProject.role}</p>
                                     </div>
                                     <button

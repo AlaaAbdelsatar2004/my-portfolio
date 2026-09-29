@@ -14,6 +14,7 @@ import {
   Rocket,
   Star,
   Zap,
+  Smartphone,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -41,7 +42,7 @@ const skillCategories: Category[] = [
     accentBorder: "border-emerald-500/40",
     accentBg: "bg-emerald-500/10",
     primary: true,
-    skills: ["Dart", "Flutter", "OOP", "Clean Code"],
+    skills: ["Dart", "Flutter", "Kotlin", "OOP", "Clean Code"],
   },
   {
     id: "arch",
@@ -91,14 +92,14 @@ const skillCategories: Category[] = [
   },
   {
     id: "platform",
-    title: "Cross-Platform",
+    title: "Cross-Platform & Native",
     icon: MonitorSmartphone,
     badge: "Multi-Platform",
     glow: "shadow-[0_0_35px_rgba(20,184,166,0.35)]",
     accentText: "text-teal-400",
     accentBorder: "border-teal-500/40",
     accentBg: "bg-teal-500/10",
-    skills: ["Android", "iOS", "Web", "Windows Desktop"],
+    skills: ["Android (Kotlin)", "iOS", "Web", "Windows Desktop"],
   },
   {
     id: "tools",
@@ -157,6 +158,17 @@ const specialties = [
     ring: "ring-purple-500/40",
     glow: "shadow-[0_0_40px_rgba(168,85,247,0.4)]",
     text: "text-purple-400",
+  },
+  {
+    icon: Smartphone,
+    title: "Android & Kotlin",
+    subtitle: "Modern native mobile dev",
+    level: 80,
+    years: "In Progress",
+    accent: "from-violet-500 to-indigo-400",
+    ring: "ring-violet-500/40",
+    glow: "shadow-[0_0_40px_rgba(139,92,246,0.4)]",
+    text: "text-violet-400",
   },
   {
     icon: Rocket,
@@ -239,7 +251,7 @@ const SkillsSection = () => {
         </motion.div>
 
         {/* ===== CORE SPECIALTIES HERO ROW ===== */}
-        <div className="grid md:grid-cols-3 gap-4 sm:gap-5 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10">
           {specialties.map(({ icon: Icon, title, subtitle, level, years, accent, ring, glow, text }, idx) => (
             <motion.div
               key={title}

@@ -20,13 +20,13 @@ import { motion, useInView } from "framer-motion";
 const highlights = [
   {
     icon: Smartphone,
-    label: "Cross-Platform Mobile",
-    desc: "Single Dart codebase delivering native-performance iOS & Android applications.",
+    label: "Cross-Platform & Native",
+    desc: "Production Flutter engineering with expanding Native Android & Kotlin expertise.",
     accent: "border-emerald-500/40 text-emerald-400",
     iconGlow: "shadow-[0_0_25px_rgba(16,185,129,0.35)]",
-    badge: "iOS & Android",
+    badge: "Flutter & Kotlin",
     level: 92,
-    points: ["Single Codebase", "Native Performance"],
+    points: ["Flutter & Dart", "Kotlin (Android)"],
   },
   {
     icon: Layers,
@@ -69,9 +69,11 @@ const stats = [
 const techMarquee = [
   "Flutter",
   "Dart",
+  "Kotlin",
   "Clean Architecture",
   "MVI",
   "BLoC / Cubit",
+  "Android",
   "Supabase",
   "Firebase",
   "PostgreSQL",
@@ -205,8 +207,8 @@ const AboutSection = () => {
               {/* Bio */}
               <div className="space-y-3 text-muted-foreground text-sm leading-relaxed mb-5">
                 <p className="text-foreground/90 border-l-2 border-primary/70 pl-3 py-0.5 font-medium">
-                  I'm a <span className="text-primary font-semibold">Junior Flutter Developer</span> with{" "}
-                  <span className="text-foreground font-mono font-bold">2+ years</span> architecting enterprise-grade cross-platform applications using Clean Architecture, MVI, and BLoC/Cubit.
+                  I'm a <span className="text-primary font-semibold">Junior Flutter & Mobile Developer</span> with{" "}
+                  <span className="text-foreground font-mono font-bold">2+ years</span> architecting enterprise-grade mobile applications using Clean Architecture, MVI, and BLoC/Cubit, with growing mastery in <span className="text-purple-400 font-semibold">Native Android (Kotlin)</span>.
                 </p>
                 <p className="text-xs sm:text-sm">
                   Proven freelance track record delivering enterprise solutions including real-time tracking systems and apps published on Google Play, with deep specialization in integrating AI agents into mobile workflows and building robust backends with Firebase, Supabase, and REST APIs.
@@ -234,7 +236,7 @@ const AboutSection = () => {
 
               {/* Tag pills */}
               <div className="flex flex-wrap gap-1.5 pt-4 border-t border-border/40 mt-auto">
-                {["Flutter", "Dart", "Clean Arch", "MVI / Cubit", "Firebase", "Supabase", "REST APIs", "AI Agents"].map((tag, i) => (
+                {["Flutter", "Dart", "Kotlin", "Clean Arch", "MVI / Cubit", "Firebase", "Supabase", "REST APIs", "AI Agents"].map((tag, i) => (
                   <span
                     key={tag}
                     className={`text-[10px] font-mono font-medium px-2.5 py-1 rounded-lg border transition-colors ${i === 0
@@ -293,8 +295,8 @@ const AboutSection = () => {
                 <div className="pl-4"><span className="text-purple-400">final</span> <span className="text-cyan-300">String</span> role <span className="text-slate-400">=</span> <span className="text-amber-300">'Flutter Engineer'</span>;</div>
                 <div className="pl-4"><span className="text-purple-400">final</span> <span className="text-cyan-300">String</span> degree <span className="text-slate-400">=</span> <span className="text-amber-300">'CS · HTI 10x'</span>;</div>
                 <div className="pl-4"><span className="text-purple-400">final</span> <span className="text-cyan-300">List</span>&lt;<span className="text-cyan-300">String</span>&gt; stack <span className="text-slate-400">=</span> [</div>
-                <div className="pl-8 text-amber-300">'Flutter', 'Clean Arch',</div>
-                <div className="pl-8 text-amber-300">'MVI', 'Supabase'</div>
+                <div className="pl-8 text-amber-300">'Flutter', 'Dart', 'Kotlin',</div>
+                <div className="pl-8 text-amber-300">'Clean Arch', 'Supabase'</div>
                 <div className="pl-4"><span className="text-slate-400">];</span></div>
                 <div className="pl-4"><span className="text-purple-400">final</span> <span className="text-cyan-300">bool</span> available <span className="text-slate-400">=</span> <span className="text-orange-400">true</span>;</div>
                 <div className="pl-4 text-slate-500 italic">// Scalable · Clean · Production</div>

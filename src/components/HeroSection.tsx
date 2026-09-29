@@ -99,7 +99,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-mono max-w-xl mb-6 border-l-2 border-primary/50 pl-3.5 ml-0 text-left"
             >
-              Computer Science Engineering graduate from the <span className="text-foreground font-bold">Elite 10x Cohort at HTI</span> with 2+ years experience building production apps using <span className="text-primary font-semibold">Clean Architecture</span>, <span className="text-cyan-400 font-semibold">MVI / Cubit</span>, and <span className="text-accent font-semibold">Supabase & Firebase</span>.
+              Computer Science Engineering graduate from the <span className="text-foreground font-bold">Elite 10x Cohort at HTI</span> with 2+ years experience building production apps using <span className="text-primary font-semibold">Flutter & Dart</span>, advancing into <span className="text-purple-400 font-semibold">Kotlin & Native Android</span>, and architecting with <span className="text-cyan-400 font-semibold">Clean Architecture & MVI</span>.
             </motion.p>
 
             {/* Tech Pill Tags */}
@@ -109,7 +109,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-wrap justify-center lg:justify-start gap-1.5 mb-7"
             >
-              {["Flutter", "Clean Architecture", "MVI", "BLoC/Cubit", "Supabase", "Firebase AI", "Google Play"].map((tech) => (
+              {["Flutter", "Dart", "Kotlin", "Clean Architecture", "MVI", "BLoC/Cubit", "Supabase", "Firebase AI", "Google Play"].map((tech) => (
                 <span
                   key={tech}
                   className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-secondary/70 border border-border/60 text-muted-foreground font-medium hover:border-primary/40 hover:text-foreground transition-colors"
