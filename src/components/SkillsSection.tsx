@@ -5,16 +5,16 @@ import {
   Cpu,
   Database,
   Sparkles,
-  MonitorSmartphone,
   Wrench,
   BrainCircuit,
-  Users,
+  Eye,
+  Languages,
   Check,
   Flame,
   Rocket,
   Star,
   Zap,
-  Smartphone,
+  BarChart3,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -33,8 +33,8 @@ type Category = {
 
 const skillCategories: Category[] = [
   {
-    id: "core",
-    title: "Core Development",
+    id: "programming",
+    title: "Programming & Query Languages",
     icon: Code2,
     badge: "Core",
     glow: "shadow-[0_0_35px_rgba(16,185,129,0.35)]",
@@ -42,144 +42,148 @@ const skillCategories: Category[] = [
     accentBorder: "border-emerald-500/40",
     accentBg: "bg-emerald-500/10",
     primary: true,
-    skills: ["Dart", "Flutter", "Kotlin", "OOP", "Clean Code"],
+    skills: ["Python", "SQL", "Bash", "Git"],
   },
   {
-    id: "arch",
-    title: "Architecture & Patterns",
-    icon: Layers,
-    badge: "Enterprise",
+    id: "ml",
+    title: "Machine Learning & Deep Learning",
+    icon: BrainCircuit,
+    badge: "AI Core",
     glow: "shadow-[0_0_35px_rgba(168,85,247,0.35)]",
     accentText: "text-purple-400",
     accentBorder: "border-purple-500/40",
     accentBg: "bg-purple-500/10",
     primary: true,
-    skills: ["Clean Architecture", "MVI", "MVVM", "SOLID", "Design Patterns"],
+    skills: [
+      "TensorFlow",
+      "PyTorch",
+      "Keras",
+      "Scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "CNNs",
+      "Neural Networks",
+      "Feature Engineering",
+      "AutoML",
+    ],
   },
   {
-    id: "state",
-    title: "State Management",
-    icon: Cpu,
-    badge: "Reactive",
+    id: "cv",
+    title: "Computer Vision",
+    icon: Eye,
+    badge: "Vision",
     glow: "shadow-[0_0_35px_rgba(34,211,238,0.35)]",
     accentText: "text-cyan-400",
     accentBorder: "border-cyan-500/40",
     accentBg: "bg-cyan-500/10",
-    skills: ["BLoC", "Cubit", "Provider"],
+    primary: true,
+    skills: ["YOLOv8", "OpenCV", "Object Detection", "Image Processing", "Data Augmentation"],
   },
   {
-    id: "backend",
-    title: "Backend & Databases",
-    icon: Database,
-    badge: "Cloud & Local",
+    id: "nlp",
+    title: "Natural Language Processing",
+    icon: Languages,
+    badge: "NLP",
+    glow: "shadow-[0_0_35px_rgba(59,130,246,0.35)]",
+    accentText: "text-blue-400",
+    accentBorder: "border-blue-500/40",
+    accentBg: "bg-blue-500/10",
+    skills: ["Hugging Face Transformers", "NLTK", "SpaCy"],
+  },
+  {
+    id: "mlops",
+    title: "MLOps & Deployment",
+    icon: Cpu,
+    badge: "Production",
     glow: "shadow-[0_0_35px_rgba(245,158,11,0.35)]",
     accentText: "text-amber-400",
     accentBorder: "border-amber-500/40",
     accentBg: "bg-amber-500/10",
     primary: true,
-    skills: ["Supabase", "Firebase", "RESTful APIs (Dio)", "Hive", "ObjectBox"],
+    skills: [
+      "FastAPI",
+      "Docker",
+      "Streamlit",
+      "Model Serving",
+      "API Testing",
+      "Pytest",
+      "Swagger",
+      "AWS S3",
+      "Heroku",
+    ],
   },
   {
-    id: "ai",
-    title: "Specialized APIs & AI",
-    icon: Sparkles,
-    badge: "Realtime & AI",
-    glow: "shadow-[0_0_35px_rgba(59,130,246,0.35)]",
-    accentText: "text-blue-400",
-    accentBorder: "border-blue-500/40",
-    accentBg: "bg-blue-500/10",
-    skills: ["Google Maps", "Background Location", "FCM", "Gemini AI", "AI Agents", "Paymob"],
-  },
-  {
-    id: "platform",
-    title: "Cross-Platform & Native",
-    icon: MonitorSmartphone,
-    badge: "Multi-Platform",
+    id: "data",
+    title: "Data Analysis & Visualization",
+    icon: BarChart3,
+    badge: "Analytics",
     glow: "shadow-[0_0_35px_rgba(20,184,166,0.35)]",
     accentText: "text-teal-400",
     accentBorder: "border-teal-500/40",
     accentBg: "bg-teal-500/10",
-    skills: ["Android (Kotlin)", "iOS", "Web", "Windows Desktop"],
+    skills: ["Pandas", "NumPy", "EDA", "Matplotlib", "Seaborn", "Plotly", "Power BI", "Tableau"],
   },
   {
     id: "tools",
-    title: "Testing & Tools",
+    title: "Tools & Platforms",
     icon: Wrench,
     badge: "Tooling",
     glow: "shadow-[0_0_35px_rgba(99,102,241,0.35)]",
     accentText: "text-indigo-400",
     accentBorder: "border-indigo-500/40",
     accentBg: "bg-indigo-500/10",
-    skills: ["Unit/Widget Testing", "Mockito", "CI/CD Actions", "Git/GitHub", "Postman", "Figma"],
-  },
-  {
-    id: "cs",
-    title: "Problem Solving",
-    icon: BrainCircuit,
-    badge: "Algorithms",
-    glow: "shadow-[0_0_35px_rgba(244,63,94,0.35)]",
-    accentText: "text-rose-400",
-    accentBorder: "border-rose-500/40",
-    accentBg: "bg-rose-500/10",
-    skills: ["Data Structures & Algorithms", "System Design"],
-  },
-  {
-    id: "soft",
-    title: "Soft Skills & Agile",
-    icon: Users,
-    badge: "Collaboration",
-    glow: "shadow-[0_0_35px_rgba(14,165,233,0.35)]",
-    accentText: "text-sky-400",
-    accentBorder: "border-sky-500/40",
-    accentBg: "bg-sky-500/10",
-    skills: ["Communication", "Teamwork", "Agile/Scrum"],
+    skills: ["GitHub", "Google Colab", "Jupyter Notebook", "Excel (Pivot Tables, VLOOKUP)"],
   },
 ];
 
 const specialties = [
   {
+    icon: Eye,
+    title: "Computer Vision",
+    subtitle: "YOLOv8 · OpenCV · CNNs",
+    metric: "95%",
+    metricLabel: "Traffic sign detection accuracy",
+    badge: "Real-time",
+    accent: "from-cyan-500 to-sky-400",
+    ring: "ring-cyan-500/40",
+    glow: "shadow-[0_0_40px_rgba(34,211,238,0.4)]",
+    text: "text-cyan-400",
+  },
+  {
+    icon: Rocket,
+    title: "MLOps & Deployment",
+    subtitle: "FastAPI · Docker · Streamlit",
+    metric: "40%",
+    metricLabel: "Less manual preprocessing time",
+    badge: "Production",
+    accent: "from-amber-500 to-orange-400",
+    ring: "ring-amber-500/40",
+    glow: "shadow-[0_0_40px_rgba(245,158,11,0.4)]",
+    text: "text-amber-400",
+  },
+  {
     icon: Flame,
-    title: "Flutter & Dart",
-    subtitle: "Cross-platform expert",
-    level: 95,
-    years: "2+ yrs",
+    title: "Machine Learning",
+    subtitle: "Scikit-learn · XGBoost · TensorFlow",
+    metric: "18%",
+    metricLabel: "Max metric gain via tuning",
+    badge: "Modeling",
     accent: "from-emerald-500 to-teal-400",
     ring: "ring-emerald-500/40",
     glow: "shadow-[0_0_40px_rgba(16,185,129,0.4)]",
     text: "text-emerald-400",
   },
   {
-    icon: Layers,
-    title: "Clean Architecture",
-    subtitle: "MVI · BLoC · Cubit",
-    level: 90,
-    years: "Enterprise",
+    icon: BrainCircuit,
+    title: "Deep Learning",
+    subtitle: "CNNs · Autoencoders · Keras",
+    metric: "83.73%",
+    metricLabel: "PneumoAI validation accuracy",
+    badge: "Healthcare AI",
     accent: "from-purple-500 to-fuchsia-400",
     ring: "ring-purple-500/40",
     glow: "shadow-[0_0_40px_rgba(168,85,247,0.4)]",
     text: "text-purple-400",
-  },
-  {
-    icon: Smartphone,
-    title: "Android & Kotlin",
-    subtitle: "Modern native mobile dev",
-    level: 80,
-    years: "In Progress",
-    accent: "from-violet-500 to-indigo-400",
-    ring: "ring-violet-500/40",
-    glow: "shadow-[0_0_40px_rgba(139,92,246,0.4)]",
-    text: "text-violet-400",
-  },
-  {
-    icon: Rocket,
-    title: "Backend & AI",
-    subtitle: "Supabase · Firebase · Gemini",
-    level: 85,
-    years: "Production",
-    accent: "from-amber-500 to-orange-400",
-    ring: "ring-amber-500/40",
-    glow: "shadow-[0_0_40px_rgba(245,158,11,0.4)]",
-    text: "text-amber-400",
   },
 ];
 
@@ -230,14 +234,14 @@ const SkillsSection = () => {
           </div>
 
           <p className="text-muted-foreground text-sm sm:text-base font-mono max-w-xl mx-auto">
-            Full-stack mobile expertise across architecture, state management, backend & tools.
+            End-to-end AI/ML expertise across modeling, computer vision, deployment, and data analysis.
           </p>
 
           {/* Meta counters */}
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary">
               <Zap size={11} />
-              {totalSkills}+ Skills
+              {totalSkills} Skills
             </span>
             <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-1 rounded-lg bg-secondary/60 border border-border/50 text-muted-foreground">
               <Layers size={11} className="text-cyan-400" />
@@ -252,7 +256,7 @@ const SkillsSection = () => {
 
         {/* ===== CORE SPECIALTIES HERO ROW ===== */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10">
-          {specialties.map(({ icon: Icon, title, subtitle, level, years, accent, ring, glow, text }, idx) => (
+          {specialties.map(({ icon: Icon, title, subtitle, metric, metricLabel, badge, accent, ring, glow, text }, idx) => (
             <motion.div
               key={title}
               initial={{ opacity: 0, y: 20 }}
@@ -274,9 +278,9 @@ const SkillsSection = () => {
                   </div>
                   <div className="flex flex-col items-end gap-1.5">
                     <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-secondary/80 border ${ring} ${text} tracking-wider`}>
-                      {years}
+                      {badge}
                     </span>
-                    <span className={`text-2xl font-bold font-heading ${text}`}>{level}%</span>
+                    <span className={`text-2xl font-bold font-heading ${text}`}>{metric}</span>
                   </div>
                 </div>
 
@@ -286,17 +290,9 @@ const SkillsSection = () => {
                 </h3>
                 <p className="text-xs text-muted-foreground font-mono mb-4">{subtitle}</p>
 
-                {/* Skill meter */}
-                <div className="mt-auto">
-                  <div className="h-1.5 rounded-full bg-secondary/60 overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.25 + idx * 0.08, ease: "easeOut" }}
-                      className={`h-full bg-gradient-to-r ${accent} rounded-full shadow-[0_0_10px_currentColor]`}
-                    />
-                  </div>
+                {/* Proof metric label */}
+                <div className="mt-auto pt-3 border-t border-border/40">
+                  <p className="text-[11px] text-muted-foreground font-mono">{metricLabel}</p>
                 </div>
               </div>
             </motion.div>

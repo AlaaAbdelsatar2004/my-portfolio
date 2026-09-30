@@ -1,6 +1,8 @@
-import { ArrowDown, Github, Linkedin, Code2, Smartphone, Terminal, Database, Sparkles, Eye, Layers, ShieldCheck, Flame, Cpu, Star } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Code2, BrainCircuit, Database, Sparkles, FileText, Layers, ShieldCheck, Flame, Cpu, Star } from "lucide-react";
 import { motion } from "framer-motion";
-import profileImg from "@/assets/profile.JPEG";
+
+
+import profileImg from "@/assets/profile.jpeg";
 
 const HeroSection = () => {
   return (
@@ -20,7 +22,7 @@ const HeroSection = () => {
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-[18%] left-[7%] text-primary/20 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]"
         >
-          <Smartphone size={56} />
+          <BrainCircuit size={56} />
         </motion.div>
         <motion.div
           animate={{ y: [0, 28, 0], rotate: [0, -15, 0] }}
@@ -41,17 +43,19 @@ const HeroSection = () => {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
           className="absolute bottom-[18%] right-[9%] text-primary/20 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]"
         >
-          <Terminal size={48} />
+          <Cpu size={48} />
         </motion.div>
       </div>
 
       <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center max-w-6xl">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
 
-          {/* Left Column: Text & CTA Content (7 cols) */}
+          {/* Left Column: Text & CTA */}
           <div className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left order-2 lg:order-1">
 
-            {/* Availability Badge */}
+            {/* ============================================
+                🟢 بادج التوفر
+                ============================================ */}
             <motion.div
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -62,10 +66,12 @@ const HeroSection = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
-              <span>Available for Enterprise & Freelance Projects</span>
+              <span>Available for AI & MLOps Opportunities</span>
             </motion.div>
 
-            {/* Main Title Heading */}
+            {/* ============================================
+                👤 الاسم
+                ============================================ */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -74,11 +80,13 @@ const HeroSection = () => {
             >
               <span className="text-foreground block mb-1">Hi, I'm</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-accent drop-shadow-[0_0_35px_rgba(16,185,129,0.25)]">
-                Moaz Osama
+                A'laa Abdelsattar
               </span>
             </motion.h1>
 
-            {/* Role Subheading */}
+            {/* ============================================
+                💼 المسمى
+                ============================================ */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -87,29 +95,33 @@ const HeroSection = () => {
             >
               <div className="h-px w-8 bg-primary/50 hidden lg:block" />
               <h2 className="text-base sm:text-lg md:text-xl text-muted-foreground font-heading tracking-tight flex items-center justify-center lg:justify-start gap-2">
-                <span className="text-foreground font-bold">Junior Flutter & Mobile Software Engineer</span>
+                <span className="text-foreground font-bold">AI / Machine Learning Engineer | Data Scientist</span>
                 <Sparkles className="text-primary hidden sm:inline-block w-4 h-4 animate-pulse" />
               </h2>
             </motion.div>
 
-            {/* Bio Summary */}
+            {/* ============================================
+                📝 النبذة
+                ============================================ */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-mono max-w-xl mb-6 border-l-2 border-primary/50 pl-3.5 ml-0 text-left"
             >
-              Computer Science Engineering graduate from the <span className="text-foreground font-bold">Elite 10x Cohort at HTI</span> with 2+ years experience building production apps using <span className="text-primary font-semibold">Flutter & Dart</span>, advancing into <span className="text-purple-400 font-semibold">Kotlin & Native Android</span>, and architecting with <span className="text-cyan-400 font-semibold">Clean Architecture & MVI</span>.
+              With <span className="text-foreground font-bold">2+ years of experience</span> in machine learning and data analytics, I have developed end-to-end ML pipelines, deployed models using <span className="text-primary font-semibold">MLOps best practices</span>, and achieved 95% accuracy in real-time traffic sign detection. My expertise lies in deploying ML models into production and improving model readiness by <span className="text-cyan-400 font-semibold">30%</span>.
             </motion.p>
 
-            {/* Tech Pill Tags */}
+            {/* ============================================
+                🏷️ التاجز التقنية
+                ============================================ */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-wrap justify-center lg:justify-start gap-1.5 mb-7"
             >
-              {["Flutter", "Dart", "Kotlin", "Clean Architecture", "MVI", "BLoC/Cubit", "Supabase", "Firebase AI", "Google Play"].map((tech) => (
+              {["Python", "TensorFlow", "PyTorch", "YOLOv8", "Computer Vision", "MLOps", "FastAPI", "Docker", "Streamlit"].map((tech) => (
                 <span
                   key={tech}
                   className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-secondary/70 border border-border/60 text-muted-foreground font-medium hover:border-primary/40 hover:text-foreground transition-colors"
@@ -126,13 +138,16 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-3 w-full sm:w-auto mb-7"
             >
+              {/* ============================================
+                  📄 زر الـ CV — لينك Google Drive
+                  ============================================ */}
               <a
-                href="https://drive.google.com/file/d/1eT6FPISKWzxGHsdMh5utTe8iE2ZB6OwB/view?usp=sharing"
+                href="https://drive.google.com/file/d/1eQxhfTTRhDq7E-P9MbzFgIeHkH3tauGN/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(var(--primary),0.35)] hover:shadow-[0_0_30px_rgba(var(--primary),0.55)] transform hover:-translate-y-0.5 overflow-hidden flex items-center justify-center gap-2"
               >
-                <Eye className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <FileText className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 <span>Show CV</span>
               </a>
 
@@ -153,17 +168,20 @@ const HeroSection = () => {
               </a>
             </motion.div>
 
-            {/* Social Links & Quick Metrics */}
+            {/* Social + Stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 border-t border-border/40 w-full"
             >
+              {/* ============================================
+                  🔗 روابط GitHub و LinkedIn
+                  ============================================ */}
               <div className="flex items-center gap-2">
                 {[
-                  { icon: Github, href: "https://github.com/moazosama1", label: "GitHub" },
-                  { icon: Linkedin, href: "https://www.linkedin.com/in/moaz-osama-7a3013265", label: "LinkedIn" },
+                  { icon: Github, href: "https://github.com/AlaaAbdelsatar2004", label: "GitHub" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/a-laa-abdelsttar-85b309286", label: "LinkedIn" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
@@ -180,25 +198,27 @@ const HeroSection = () => {
 
               <div className="h-4 w-px bg-border/60 hidden sm:block" />
 
-              {/* Quick Stat Pill */}
+              {/* ============================================
+                  📊 الإحصائيات السريعة
+                  ============================================ */}
               <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground">
                 <span className="flex items-center gap-1 font-bold text-foreground">
                   <ShieldCheck size={14} className="text-primary" /> 2+ Yrs Exp
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1 font-bold text-foreground">
-                  <Star size={13} className="text-amber-400" /> 7+ Apps
+                  <Star size={13} className="text-amber-400" /> 7 ML Projects
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1 font-bold text-foreground">
-                  <Cpu size={13} className="text-cyan-400" /> Clean MVI
+                  <Cpu size={13} className="text-cyan-400" /> MLOps
                 </span>
               </div>
             </motion.div>
 
           </div>
 
-          {/* Right Column: Visual Avatar with Interactive Floating Badges (5 cols) */}
+          {/* Right Column: Avatar */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end items-center order-1 lg:order-2 mb-4 lg:mb-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
@@ -206,25 +226,21 @@ const HeroSection = () => {
               transition={{ duration: 0.8, type: "spring" }}
               className="relative group w-60 h-60 sm:w-72 sm:h-72 lg:w-[340px] lg:h-[340px]"
             >
-              {/* Outer Glowing Rings */}
               <div className="absolute inset-0 rounded-full border border-primary/30 scale-105 animate-[spin_24s_linear_infinite]" />
               <div className="absolute inset-0 rounded-full border border-cyan-400/30 scale-[1.18] animate-[spin_30s_linear_infinite_reverse] border-dashed" />
 
-              {/* Glowing Background Glow Aura */}
               <div className="absolute inset-3 bg-gradient-to-r from-primary via-cyan-400 to-accent rounded-full blur-2xl opacity-45 group-hover:opacity-70 transition duration-700 pointer-events-none" />
 
-              {/* Core Avatar Frame */}
               <div className="absolute inset-5 rounded-full p-1.5 bg-gradient-to-br from-primary via-cyan-300 to-accent animate-[spin_10s_linear_infinite]">
                 <div className="w-full h-full rounded-full bg-background overflow-hidden border-[5px] border-background animate-[spin_10s_linear_infinite_reverse]">
                   <img
                     src={profileImg}
-                    alt="Moaz Osama"
+                    alt="A'laa Abdelsattar"
                     className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
               </div>
 
-              {/* Floating Badge 1: 2+ Yrs Exp */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -235,35 +251,32 @@ const HeroSection = () => {
                 <span className="text-[11px] font-mono font-bold text-foreground">2+ Yrs Experience</span>
               </motion.div>
 
-              {/* Floating Badge 2: Clean Architecture */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.9 }}
                 className="absolute bottom-[20%] -left-[6%] bg-card/90 backdrop-blur-xl border border-border/70 px-3.5 py-1.5 rounded-2xl shadow-xl flex items-center gap-2 hover:scale-105 transition-transform"
               >
-                <Code2 className="w-4 h-4 text-primary" />
-                <span className="text-[11px] font-mono font-bold text-foreground">Clean Architecture</span>
+                <BrainCircuit className="w-4 h-4 text-primary" />
+                <span className="text-[11px] font-mono font-bold text-foreground">MLOps & Deployment</span>
               </motion.div>
 
-              {/* Floating Badge 3: MVI / Cubit */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1 }}
                 className="absolute -bottom-[2%] right-[10%] bg-card/90 backdrop-blur-xl border border-border/70 px-3.5 py-1.5 rounded-2xl shadow-xl flex items-center gap-2 hover:scale-105 transition-transform"
               >
-                <Smartphone className="w-4 h-4 text-accent" />
-                <span className="text-[11px] font-mono font-bold text-foreground">MVI & Cubit</span>
+                <Cpu className="w-4 h-4 text-accent" />
+                <span className="text-[11px] font-mono font-bold text-foreground">95% Accuracy</span>
               </motion.div>
-
             </motion.div>
           </div>
 
         </div>
       </div>
 
-      {/* Scroll Down Indicator */}
+      {/* Scroll Down */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -278,7 +291,6 @@ const HeroSection = () => {
           </div>
         </a>
       </motion.div>
-
     </section>
   );
 };

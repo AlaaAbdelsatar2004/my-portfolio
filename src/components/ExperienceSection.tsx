@@ -3,7 +3,9 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   Briefcase,
   GraduationCap,
-  Award,
+  Users,
+  BarChart3,
+  BrainCircuit,
   Calendar,
   Sparkles,
   CheckCircle2,
@@ -39,64 +41,98 @@ type Experience = {
 const experiences: Experience[] = [
   {
     step: "01",
-    role: "Junior Flutter & Mobile Developer",
-    company: "Self-Employed",
-    period: "Oct 2024 – Present",
-    type: "Freelance / Remote",
-    status: "Active",
+    role: "Machine Learning Engineer Intern",
+    company: "Elevvo Pathways",
+    period: "Aug 2026",
+    type: "Internship",
+    status: "Completed",
     icon: Briefcase,
-    highlight: "Delivering production apps on Google Play & Enterprise Real-Time Tracking systems",
-    tags: ["Flutter", "Dart", "Kotlin", "Clean Architecture", "MVI / Cubit", "Supabase", "Firebase", "AI Agents"],
+    highlight: "Built a YOLOv8 traffic sign detection system with 95% accuracy and deployed it with FastAPI & Docker",
+    tags: ["YOLOv8", "FastAPI", "Docker", "Streamlit", "CNNs", "MLOps"],
     points: [
-      "Architected and delivered enterprise-grade solutions including real-time tracking systems and published apps on Google Play.",
-      "Integrated AI agents into mobile workflows and built robust backend services with Firebase and Supabase.",
-      "Engineered scalable applications using Clean Architecture, MVI, and BLoC/Cubit, expanding into Native Android with Kotlin.",
+      "Developed and deployed end-to-end Machine Learning pipelines, taking models from experimentation to production using MLOps best practices.",
+      "Engineered a Traffic Sign Detection system using YOLOv8 on the GTSDB dataset, achieving 95% accuracy by optimizing model parameters.",
+      "Engineered a Music Genre Classification model by extracting audio features and applying Convolutional Neural Networks (CNNs).",
+      "Deployed ML models into production using FastAPI for model serving and Docker for containerization, ensuring scalable and reproducible environments.",
+      "Developed an interactive web UI using Streamlit and ensured robust API functionality through thorough testing.",
     ],
   },
   {
     step: "02",
-    role: "Flutter Training & Advanced App Dev",
-    company: "Elevate Tech",
-    period: "Jul 2024 – Nov 2024",
-    type: "Specialized Academy",
+    role: "Head Vice, Python Track",
+    company: "GDG on Campus Al-Azhar",
+    period: "Nov 2025 – Mar 2026",
+    type: "Leadership / Community",
     status: "Completed",
-    icon: Award,
-    highlight: "Mastered enterprise architecture & BLoC/Cubit state management",
-    tags: ["Advanced Flutter", "Clean Architecture", "State Management", "CI/CD"],
+    icon: Users,
+    highlight: "Facilitated 5 Python & data science workshops for 50+ student developers",
+    tags: ["Python", "Data Science", "Mentoring", "Workshops"],
     points: [
-      "Completed advanced Flutter engineering training focusing on enterprise architecture.",
-      "Gained deep knowledge in Clean Architecture, state management patterns (BLoC/Cubit), and scalable codebase structure.",
-      "Built production-grade project modules with comprehensive unit/widget testing.",
+      "Facilitated 5 Python and data science workshops for over 50 student developers, enhancing their skills in Python fundamentals and ML basics within 6 months.",
+      "Mentored participants on Python fundamentals, data analysis, and ML basics, resulting in an 80% course completion rate.",
     ],
   },
   {
     step: "03",
-    role: "Flutter & Mobile Fundamentals",
-    company: "Route Academy",
-    period: "Jun 2024 – Oct 2024",
-    type: "Academy Training",
+    role: "Data Analytics Intern",
+    company: "Elevvo Pathways",
+    period: "Sep 2025",
+    type: "Internship",
     status: "Completed",
-    icon: Building2,
-    highlight: "Core Dart OOP, reactive layouts & widget trees",
-    tags: ["Dart", "Flutter Basics", "OOP", "UI Widgets"],
+    icon: BarChart3,
+    highlight: "Built automated dashboards that improved operational efficiency by 20%",
+    tags: ["Dashboards", "Data Visualization", "Power BI", "Tableau"],
     points: [
-      "Completed foundational training in the Flutter framework and Dart programming language.",
-      "Mastered core OOP concepts, custom UI building, reactive layouts, and widget trees.",
+      "Developed automated reporting dashboards that improved real-time metrics tracking, enhancing operational efficiency by 20% within 2 weeks through streamlined data visualization.",
+      "Generated actionable insights that influenced 3 business decisions, increasing operational efficiency by 15%.",
     ],
   },
   {
     step: "04",
-    role: "CS Engineering Graduate",
+    role: "Data Science Trainee",
+    company: "Route Academy",
+    period: "May 2025 – Sep 2025",
+    type: "Training Program",
+    status: "Completed",
+    icon: Building2,
+    highlight: "Completed 6 hands-on projects and improved evaluation metrics by up to 18%",
+    tags: ["Scikit-learn", "Feature Engineering", "Hyperparameter Tuning", "ML Pipelines"],
+    points: [
+      "Completed 6 hands-on projects covering data preprocessing, feature engineering, and ML modeling.",
+      "Applied classification and regression models to 3+ datasets, improving evaluation metrics by up to 18% through hyperparameter tuning.",
+      "Built end-to-end ML pipelines, reducing manual preprocessing time by 40%.",
+    ],
+  },
+  {
+    step: "05",
+    role: "AI and Deep Learning Trainee",
+    company: "Instant Software Solutions",
+    period: "Feb 2024 – Jun 2024",
+    type: "Training (170 Hours)",
+    status: "Completed",
+    icon: BrainCircuit,
+    highlight: "Developed and deployed 3 AI prototypes and raised deep learning test accuracy by 12%",
+    tags: ["Deep Learning", "Neural Networks", "Python", "Scikit-learn"],
+    points: [
+      "Completed 10+ technical exercises in deep learning and neural networks, enhancing practical skills and theoretical knowledge.",
+      "Implemented model training and evaluation workflows, increasing deep learning model accuracy by 12% on test sets.",
+      "Developed and deployed 3 AI prototypes for classification tasks using Python and Scikit-learn.",
+    ],
+  },
+  {
+    step: "06",
+    role: "BSc in Computer Science",
     company: "Higher Technological Institute (HTI)",
     period: "2022 – 2026",
-    type: "Bachelor Degree • Elite 10x Cohort",
+    type: "Bachelor Degree",
     status: "Graduated",
     icon: GraduationCap,
-    highlight: "Elite 10x Cohort CS Engineering graduate with strong algorithm fundamentals",
-    tags: ["Data Structures", "Algorithms", "System Design", "Software Engineering"],
+    highlight: "Computer Science graduate; ICPC/ECPC participant with an ECPC Honorable Mention (Jul 2024)",
+    tags: ["Data Structures", "Algorithms", "Databases", "Probability & Statistics"],
     points: [
-      "Graduated from the Computer Science Engineering program within the Elite 10x Cohort at HTI.",
-      "Studied core software engineering, data structures & algorithms, system architecture, and operating systems.",
+      "Studied Data Structures, Algorithms, Databases, Probability & Statistics, and Programming.",
+      "Participated in ICPC/ECPC (2024) and received an ECPC Honorable Mention (Jul 2024).",
+      "Served as Head Vice of the Python Track at GDG on Campus Al-Azhar (2025).",
     ],
   },
 ];
@@ -297,19 +333,19 @@ const ExperienceSection = () => {
           </h2>
 
           <p className="text-muted-foreground text-sm sm:text-base font-mono">
-            A chronological timeline of my mobile engineering journey, enterprise achievements, and academic foundation.
+            A chronological timeline of my AI/ML engineering journey, internships, community leadership, and academic foundation.
           </p>
 
-          {/* Quick stat pills — Experience-only touch, restyled to match tag-primary */}
+          {/* Quick stat pills */}
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary">
-              <Rocket size={12} /> Production Apps
+              <Rocket size={12} /> End-to-End ML Pipelines
             </span>
             <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-secondary/60 border border-border/50 text-muted-foreground hover:text-foreground transition-colors">
-              <Layers size={12} className="text-cyan-400" /> Clean Architecture & MVI
+              <Layers size={12} className="text-cyan-400" /> MLOps & Deployment
             </span>
             <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-secondary/60 border border-border/50 text-muted-foreground hover:text-foreground transition-colors">
-              <Code2 size={12} className="text-accent" /> 10x CS Graduate
+              <Code2 size={12} className="text-accent" /> BSc Computer Science
             </span>
           </div>
         </motion.div>

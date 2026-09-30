@@ -20,8 +20,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "About", href: "#about", icon: User, desc: "Who I am" },
   { label: "Skills", href: "#skills", icon: Layers, desc: "Tech stack" },
-  { label: "Projects", href: "#projects", icon: FolderKanban, desc: "Featured work" },
   { label: "Experience", href: "#experience", icon: Briefcase, desc: "Career path" },
+  { label: "Projects", href: "#projects", icon: FolderKanban, desc: "Featured work" },
   { label: "Contact", href: "#contact", icon: Mail, desc: "Get in touch" },
 ];
 
@@ -104,7 +104,7 @@ const Navbar = () => {
                 <Terminal size={16} />
               </div>
               <span className="text-foreground group-hover:text-primary transition-colors">
-                Moaz<span className="text-primary font-mono">.dev</span>
+                A'laa<span className="text-primary font-mono">.ai</span>
               </span>
             </a>
 
@@ -298,7 +298,7 @@ const Navbar = () => {
                 <div className="mt-1 px-3 pb-4 pt-3 border-t border-border/50">
                   <div className="flex items-center gap-2">
                     <a
-                      href="https://github.com/moazosama1"
+                      href="https://github.com/AlaaAbdelsatar2004"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"
@@ -307,7 +307,7 @@ const Navbar = () => {
                       <Github size={18} />
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/moaz-osama-7a3013265"
+                      href="https://www.linkedin.com/in/a-laa-abdelsttar-85b309286"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"

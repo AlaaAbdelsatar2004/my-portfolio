@@ -1,78 +1,40 @@
-import { Mail, MapPin, Phone, Send, Loader2, Github, BriefcaseBusiness, Sparkles, User, AtSign, MessageSquare, Check, Copy } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Sparkles, User, AtSign, MessageSquare, Check, Copy, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
-
-// EmailJS Credentials Configuration
-const EMAILJS_SERVICE_ID = "service_d83jeml";
-const EMAILJS_CONTACT_TEMPLATE_ID = "template_wf3d7ys";
-const EMAILJS_AUTOREPLY_TEMPLATE_ID = "template_9fpczk9";
-const EMAILJS_PUBLIC_KEY = "_AdtBzD1xFnKwlGau";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("moaz.osama.dev@gmail.com");
+    navigator.clipboard.writeText("alaaabdelsatar979@gmail.com");
     setCopied(true);
     toast.success("Email copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in all fields");
       return;
     }
 
-    setIsSubmitting(true);
+    // Opens user's email client directly
+    const subject = encodeURIComponent(`Portfolio Contact: ${form.name}`);
+    const body = encodeURIComponent(`${form.message}\n\nFrom: ${form.name} (${form.email})`);
+    window.location.href = `mailto:alaaabdelsatar979@gmail.com?subject=${subject}&body=${body}`;
 
-    try {
-      const templateParams = {
-        from_name: form.name,
-        from_email: form.email,
-        reply_to: form.email,
-        to_email: form.email,
-        message: form.message,
-        to_name: "Moaz Osama",
-      };
-
-      // 1. Send Main Notification & 2. Send Auto-Reply
-      await Promise.all([
-        emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_CONTACT_TEMPLATE_ID,
-          templateParams,
-          EMAILJS_PUBLIC_KEY
-        ),
-        emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_AUTOREPLY_TEMPLATE_ID,
-          templateParams,
-          EMAILJS_PUBLIC_KEY
-        ).catch((err) => console.warn("Auto-reply background notice:", err))
-      ]);
-
-      toast.success("Message sent successfully! Check your email for confirmation.");
-      setForm({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Email Submit Error:", error);
-      toast.error("Failed to send message. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    toast.success("Opening your email app...");
   };
 
   const contactItems = [
     {
       icon: Mail,
       label: "Email Address",
-      value: "moaz.osama.dev@gmail.com",
-      href: "mailto:moaz.osama.dev@gmail.com",
+      value: "alaaabdelsatar979@gmail.com",
+      href: "mailto:alaaabdelsatar979@gmail.com",
       action: handleCopyEmail,
       actionIcon: copied ? Check : Copy,
       actionText: copied ? "Copied" : "Copy",
@@ -80,25 +42,25 @@ const ContactSection = () => {
     {
       icon: Phone,
       label: "Phone & WhatsApp",
-      value: "+20 109 534 1166",
-      href: "https://wa.me/201095341166",
+      value: "+20 102 887 3802",
+      href: "https://wa.me/201028873802",
     },
     {
       icon: Github,
       label: "GitHub Profile",
-      value: "github.com/moazosama1",
-      href: "https://github.com/moazosama1",
+      value: "github.com/AlaaAbdelsatar2004",
+      href: "https://github.com/AlaaAbdelsatar2004",
     },
     {
-      icon: BriefcaseBusiness,
-      label: "Mostaql Freelance",
-      value: "mostaql.com/u/moaz_osama_a1",
-      href: "https://mostaql.com/u/moaz_osama_a1",
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "linkedin.com/in/a-laa-abdelsttar",
+      href: "https://www.linkedin.com/in/a-laa-abdelsttar-85b309286",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Cairo, Egypt (Remote / Relocation Available)",
+      value: "Cairo, Egypt (Open to Remote)",
     },
   ];
 
@@ -124,12 +86,12 @@ const ContactSection = () => {
             Get In <span className="text-gradient">Touch</span>
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base font-mono">
-            Have a project in mind, mobile app idea, or opportunity? Feel free to reach out anytime!
+            Have a project in mind, AI integration, or opportunity? Feel free to reach out anytime!
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-start">
-          
+
           {/* Left Column: Availability Status & Contact Info Cards */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -220,7 +182,7 @@ const ContactSection = () => {
 
               <div className="flex items-center justify-between border-b border-border/40 pb-4 mb-2">
                 <h3 className="text-lg font-bold font-heading text-foreground">Send a Direct Message</h3>
-                <span className="text-xs font-mono text-muted-foreground">Quick Response Guaranteed</span>
+                <span className="text-xs font-mono text-muted-foreground">I usually reply within 24 hours</span>
               </div>
 
               {/* Name Input */}
@@ -230,10 +192,9 @@ const ContactSection = () => {
                 </label>
                 <input
                   required
-                  disabled={isSubmitting}
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/60 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all disabled:opacity-50 font-mono"
+                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/60 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all font-mono"
                   placeholder="e.g. John Doe"
                 />
               </div>
@@ -246,10 +207,9 @@ const ContactSection = () => {
                 <input
                   required
                   type="email"
-                  disabled={isSubmitting}
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/60 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all disabled:opacity-50 font-mono"
+                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/60 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all font-mono"
                   placeholder="john@example.com"
                 />
               </div>
@@ -262,29 +222,19 @@ const ContactSection = () => {
                 <textarea
                   required
                   rows={4}
-                  disabled={isSubmitting}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/60 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all resize-none disabled:opacity-50 font-mono"
-                  placeholder="Hello Moaz, I would like to talk about..."
+                  className="w-full px-4 py-3 rounded-xl bg-background/80 border border-border/60 text-foreground placeholder:text-muted-foreground/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50 transition-all resize-none font-mono"
+                  placeholder="Hello A'laa, I would like to talk about..."
                 />
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-sm hover:opacity-95 transition-all shadow-md hover:shadow-[0_0_25px_rgba(var(--primary),0.4)] disabled:opacity-70 disabled:cursor-not-allowed transform hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold text-sm hover:opacity-95 transition-all shadow-md hover:shadow-[0_0_25px_rgba(var(--primary),0.4)] transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 size={16} className="animate-spin" /> Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send size={16} /> Send Message
-                  </>
-                )}
+                <Send size={16} /> Send Message
               </button>
             </form>
           </motion.div>

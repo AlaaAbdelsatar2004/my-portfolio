@@ -40,7 +40,7 @@ const IPhoneLockScreen = ({ isUnlocked }: IPhoneLockScreenProps) => {
         >
           {/* Futuristic Opaque Dark Gradient Wallpaper */}
           <div className="absolute inset-0 z-0 bg-slate-950" />
-          <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-950 via-emerald-950 to-slate-[#020617] opacity-90" />
+          <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-950 via-emerald-950 to-[#020617] opacity-90" />
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[90px] pointer-events-none" />
           <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-[80px] pointer-events-none" />
 
@@ -89,7 +89,7 @@ const IPhoneLockScreen = ({ isUnlocked }: IPhoneLockScreenProps) => {
               </div>
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-[10px] text-white/80">
                 <Sparkles size={12} className="text-amber-400" />
-                <span>Flutter & Kotlin</span>
+                <span>Python & ML</span>
               </div>
             </motion.div>
           </div>
