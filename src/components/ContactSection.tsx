@@ -3,12 +3,20 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 
+const CONTACT_EMAIL = "alaaabdelsatar979@gmail.com";
+
+// Opens a new Gmail compose window (works in the browser, no mail app needed)
+const gmailComposeUrl = (subject = "", body = "") =>
+  `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}` +
+  (subject ? `&su=${encodeURIComponent(subject)}` : "") +
+  (body ? `&body=${encodeURIComponent(body)}` : "");
+
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("alaaabdelsatar979@gmail.com");
+    navigator.clipboard.writeText(CONTACT_EMAIL);
     setCopied(true);
     toast.success("Email copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
@@ -21,20 +29,20 @@ const ContactSection = () => {
       return;
     }
 
-    // Opens user's email client directly
-    const subject = encodeURIComponent(`Portfolio Contact: ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\nFrom: ${form.name} (${form.email})`);
-    window.location.href = `mailto:alaaabdelsatar979@gmail.com?subject=${subject}&body=${body}`;
+    // Opens Gmail compose in a new tab with the message pre-filled
+    const subject = `Portfolio Contact: ${form.name}`;
+    const body = `${form.message}\n\nFrom: ${form.name} (${form.email})`;
+    window.open(gmailComposeUrl(subject, body), "_blank", "noopener,noreferrer");
 
-    toast.success("Opening your email app...");
+    toast.success("Opening Gmail...");
   };
 
   const contactItems = [
     {
       icon: Mail,
       label: "Email Address",
-      value: "alaaabdelsatar979@gmail.com",
-      href: "mailto:alaaabdelsatar979@gmail.com",
+      value: CONTACT_EMAIL,
+      href: gmailComposeUrl("Hello A'laa"),
       action: handleCopyEmail,
       actionIcon: copied ? Check : Copy,
       actionText: copied ? "Copied" : "Copy",

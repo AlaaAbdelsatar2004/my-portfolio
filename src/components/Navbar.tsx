@@ -20,8 +20,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "About", href: "#about", icon: User, desc: "Who I am" },
   { label: "Skills", href: "#skills", icon: Layers, desc: "Tech stack" },
-  { label: "Experience", href: "#experience", icon: Briefcase, desc: "Career path" },
   { label: "Projects", href: "#projects", icon: FolderKanban, desc: "Featured work" },
+  { label: "Experience", href: "#experience", icon: Briefcase, desc: "Career path" },
   { label: "Contact", href: "#contact", icon: Mail, desc: "Get in touch" },
 ];
 
